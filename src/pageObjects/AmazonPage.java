@@ -145,6 +145,7 @@ public class AmazonPage {
 				isOrderedByPrice = true;
 			} else {
 				isOrderedByPrice = false;
+				return isOrderedByPrice;
 			}
 		}
 		return isOrderedByPrice;
