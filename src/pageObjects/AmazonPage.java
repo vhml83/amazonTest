@@ -141,7 +141,7 @@ public class AmazonPage {
 		boolean isOrderedByPrice = false;
 		Integer[] prices = productByPrice.values().toArray(new Integer[productByPrice.size()]);
 		for (int i = 0; i < prices.length-1; i++) {
-			if (prices[i] > prices[i+1]) {
+			if ((prices[i] > prices[i+1]) || (prices[i] == prices[i+1])) {
 				isOrderedByPrice = true;
 			} else {
 				isOrderedByPrice = false;
