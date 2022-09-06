@@ -139,15 +139,14 @@ public class AmazonPage {
 	public boolean assertOrderedPrices() {
 		Map<String, Integer> productByPrice = this.sortByPrice();
 		boolean isOrderedByPrice = false;
-		Integer[] prices = productByPrice.values().toArray(new Integer[productByPrice.size()]);
-		for (int i = 0; i < prices.length-1; i++) {
-			if ((prices[i] > prices[i+1]) || (prices[i] == prices[i+1])) {
-				isOrderedByPrice = true;
+		List<Integer> orderedPrices = new ArrayList<Integer>(productByPrice.values());
+		for (int i = 0; i < orderedPrices.size()-1; i++) {
+			if (orderedPrices.get(i) < orderedPrices.get(i+1)) {
+				return false;
 			} else {
-				isOrderedByPrice = false;
-				return isOrderedByPrice;
+				isOrderedByPrice = true;
 			}
-		}
+		}	
 		return isOrderedByPrice;
 	}
 	
